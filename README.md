@@ -14,7 +14,7 @@ This project provisions the AWS infrastructure necessary for the Tiny Twitter AP
 
    Firstly, renames the file `devcontainer.env.sample` to `devcontainer.env` in the `.devcontainer` directory. Then, replace the values of the following variables with your AWS credentials:
 
-   ```env
+   ```bash
    AWS_DEFAULT_REGION=your_region
    AWS_PROFILE=your_profile or default
    AWS_ACCESS_KEY_ID=your_access_key
