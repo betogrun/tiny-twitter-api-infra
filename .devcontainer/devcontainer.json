@@ -26,7 +26,10 @@
 	"runArgs": [
 		"--env-file", ".devcontainer/devcontainer.env"
 	],
-	"postStartCommand": "aws configure set aws_access_key_id $AWS_ACCESS_KEY --profile $AWS_PROFILE && aws configure set --profile $AWS_PROFILE aws_secret_access_key $AWS_SECRET_KEY --profile $AWS_PROFILE && aws configure set region $AWS_REGION --profile $AWS_PROFILE && aws configure set output 'text' --profile $AWS_PROFILE && aws configure list"
+	"postStartCommand": "aws configure set aws_access_key_id $AWS_ACCESS_KEY --profile $AWS_PROFILE && aws configure set --profile $AWS_PROFILE aws_secret_access_key $AWS_SECRET_KEY --profile $AWS_PROFILE && aws configure set region $AWS_REGION --profile $AWS_PROFILE && aws configure set output 'text' --profile $AWS_PROFILE && aws configure list",
+	"mounts": [
+		"source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind"
+  ]
 
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
