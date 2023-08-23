@@ -14,11 +14,11 @@ This project provisions the AWS infrastructure necessary for the Tiny Twitter AP
 
    Firstly, renames the file `devcontainer.env.sample` to `devcontainer.env` in the `.devcontainer` directory. Then, replace the values of the following variables with your AWS credentials:
 
-   ```bash
-   AWS_DEFAULT_REGION=your_region
-   AWS_PROFILE=your_profile or default
-   AWS_ACCESS_KEY_ID=your_access_key
-   AWS_SECRET_ACCESS_KEY=your_secret_key
+  ```bash
+  AWS_DEFAULT_REGION=<your_aws_default_region>
+  AWS_PROFILE=<your_aws_profile>
+  AWS_ACCESS_KEY_ID=<your_aws_access_key_id>
+  AWS_SECRET_ACCESS_KEY=<your_aws_secret_access_key>
   ```
 
   Note: **Never** commit `devcontainer.env` to source control. This is sensitive information.
@@ -47,9 +47,10 @@ This project provisions the AWS infrastructure necessary for the Tiny Twitter AP
   4. **Open the Project in a Dev Container:**
     Once inside VS Code:
     
-    - Press F1 to open the command palette.
-    - Type "Remote-Containers: Open Folder in Container..." and select it.
-    - Choose the project folder, and VS Code will start building the development container. This process may take a few minutes the first time.
+  - Press Ctrl+Shift+P or Cmd+Shift+P on Mac to open the command palette.
+  - Type "Remote-Containers: Open Folder in Container..." and select it.
+  - Choose the project folder, and VS Code will start building the development container. This process may take a few minutes the first time.
+
 
   5. **Working Inside the Dev Container:**
    Once the container is up and running, you'll notice the bottom-left corner of VS Code indicates that you're working inside the container. You can now run any command inside this isolated environment.
@@ -62,9 +63,9 @@ This project provisions the AWS infrastructure necessary for the Tiny Twitter AP
 
   1. **Initialize Terraform:**
 
-   ```bash
+  ```
    terraform init
-    ```
+  ```
   
   2. **Review planned changes:**
 
@@ -76,37 +77,19 @@ This project provisions the AWS infrastructure necessary for the Tiny Twitter AP
 
    ```bash
     terraform apply
-    ```
+  ```
 
-   Once the infrastructure setup is complete, you can access the application using the IP address provided in the output: http://<ip_address>
+   Once the infrastructure setup is complete, you can access the application using the IP address provided in the output: `http://<ip_address>`.
    You can also, access the EC2 instance using the following command:
 
-   ```bash
-    ssh -i ~/.ssh/tiny-twitter-api-key ubuntu@<ip_address>
-    ```
+  ```bash
+  ssh -i ~/.ssh/tiny-twitter-api-key ubuntu@<ip_address>
+  ```
 
    4. **Destroy the infrastructure:**
 
    You can destroy the infrastructure anytime by running:
 
-   ```bash
-    terraform destroy
-    ```
-
-## TODO: Add instructions for deploying the application.
-
-
-
-
-
-
-
-
-
-
-
-   
-
-
-
-   
+  ```bash
+  terraform destroy
+  ```
