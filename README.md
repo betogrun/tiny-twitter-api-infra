@@ -1,6 +1,6 @@
 # Tiny Twitter API Infra
 
-This project provisions the AWS infrastructure necessary for the Tiny Twitter API.
+This project provisions the AWS infrastructure necessary for the [Tiny Twitter API](https://github.com/betogrun/tiny-twitter-api).
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ This project provisions the AWS infrastructure necessary for the Tiny Twitter AP
 
 1. **Set Up AWS Credentials**
 
-   Firstly, renames the file `devcontainer.env.sample` to `devcontainer.env` in the `.devcontainer` directory. Then, replace the values of the following variables with your AWS credentials:
+   Firstly, rename the file `devcontainer.env.sample` to `devcontainer.env` in the `.devcontainer` directory. Then, replace the values of the following variables with your AWS credentials:
 
   ```bash
   AWS_DEFAULT_REGION=<your_aws_default_region>
