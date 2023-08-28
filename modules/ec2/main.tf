@@ -4,7 +4,7 @@ resource "aws_instance" "app" {
   key_name      = aws_key_pair.deployer.key_name
   subnet_id     = var.subnet_id
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
-  user_data     = file("${path.module}/scripts/setup_nginx.sh")
+  user_data     = file("${path.module}/scripts/setup.sh")
 
   tags = {
     Name = "tiny-twitter-api"

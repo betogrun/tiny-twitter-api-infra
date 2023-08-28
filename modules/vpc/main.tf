@@ -20,14 +20,27 @@ resource "aws_subnet" "public" {
   }
 }
 
-resource "aws_subnet" "private" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = var.private_subnet_cidr_block
+resource "aws_subnet" "private1" {
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = var.private_subnet1_cidr_block
+  availability_zone       = var.availability_zones[0]
+  map_public_ip_on_launch = false
 
   tags = {
-    Name = "tiny-twitter-api-private-subnet"
+    Name = "tiny-twitter-api-private-subnet1"
   }
-}	
+}
+
+resource "aws_subnet" "private2" {
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = var.private_subnet2_cidr_block
+  availability_zone       = var.availability_zones[1]
+  map_public_ip_on_launch = false
+
+  tags = {
+    Name = "tiny-twitter-api-private-subnet2"
+  }
+}
 
 resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id
@@ -68,10 +81,16 @@ resource "aws_route_table" "private" {
   }
 }
 
-resource "aws_route_table_association" "private" {
-  subnet_id      = aws_subnet.private.id
+resource "aws_route_table_association" "private1" {
+  subnet_id      = aws_subnet.private1.id
   route_table_id = aws_route_table.private.id
 }
+
+resource "aws_route_table_association" "private2" {
+  subnet_id      = aws_subnet.private2.id
+  route_table_id = aws_route_table.private.id
+}
+
 
 resource "aws_security_group" "vpc_sg" {
   name        = "tiny-twitter-api-vpc-sg"
