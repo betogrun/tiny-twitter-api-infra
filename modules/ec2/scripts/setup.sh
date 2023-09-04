@@ -1,5 +1,5 @@
 #!/bin/bash
-apt-get update
-apt-get install -y nginx
-apt-get install -y postgresql-client
-systemctl start nginx
+apt update
+apt upgrade -y
+apt install -y docker.io curl git
+usermod -a -G docker ubuntu
